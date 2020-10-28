@@ -21,7 +21,7 @@ export default async (req: Request, res: Response, next: NextFunction) => {
     const decoded = await <any>promisify(jwt.verify)(token, authConfig.secret)
 
     req.userId = decoded.id
-
+    
     next()
   }
   catch(err) {
